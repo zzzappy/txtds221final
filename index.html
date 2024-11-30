@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function openModal(src, caption, event, href=null) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImg");
+            var modalCaption = document.getElementById("modalCaption");
+            var x = event.clientX;
+            var y = event.clientY;
+            modalImg.style.transformOrigin = `${x}px ${y}px`;
+            modal.style.display = "block";
+            modalImg.src = src;
+            modalCaption.textContent = caption;
+            if (src.startsWith("https"))
+                modalCaption.innerHTML += `<br><a href="${src}">Source</a>`;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="title-container">
+        <span class="ai">>AI</span>
+        <span class="art-gallery">>ART GALLERY</span> 
+    
+        <!-- Add this button to trigger the roulette -->
+        <!-- <button id="rouletteButton">Spin the Wheel</button> -->
+    </div>
+
+    <div class="slide-out-button">
+        <button id="rouletteButton" onclick="toggleButton()">Spin the Wheel</button>
+    </div>
+    
+    
+    <!-- Add this div for the roulette wheel -->
+    <div id="rouletteWheel" class="roulette-wheel">
+        <canvas id="wheelCanvas" width="500" height="500"></canvas>
+    </div>
+
+    <div class="gallery">
+        <div class="artist">
+            <div class="artist-name">Banksy</div>
+            <div class="images">
+                <img id="wheel-id-1"
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Banksy_Girl_and_Heart_Balloon_%282840632113%29.jpg"
+                    alt="Girl with Balloon, Banksy 2002 (street art)" onclick="openModal(this.src, this.alt, event)">
+                <img id="wheel-id-2" src="ai_banksy (copilot).png"
+                    alt="&quot;Create an original image in the style of Banksy&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)">
+            </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Jean-Michel Basquiat</div>
+            <div class="images">
+                <img id="wheel-id-3"
+                    src="https://rubellmuseum.org/images/stories/BtC/Basquiat-JM/Basquiat-JM_BirdOnMoney.jpg"
+                    alt="Bird on Money, Basquiat 1981" onclick="openModal(this.src, this.alt, event)"> <img id="wheel-id-4"
+                    src="ai_basquiat (copilot).png"
+                    alt="&quot;Create an original image in the style of Basquiat&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)">
+            </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Hieronymus Bosch</div>
+            <div class="images"> <img id="wheel-id-5"
+                    src="https://content3.cdnprado.net/imagenes/Documentos/imgsem/ed/ed19/ed19fa42-83e3-443b-96b1-04261634bb14/0561a40c-cca1-4357-a01f-b62801f1183a_832.jpg"
+                    alt="Visio Tondali, Bosch 15th century" onclick="openModal(this.src, this.alt, event)"> <img
+                    id="wheel-id-6" src="ai_bosch (copilot).png"
+                    alt="&quot;Create an original image in the style of Hieronymus Bosch&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Sandro Botticelli</div>
+            <div class="images"> <img id="wheel-id-7"
+                    src="https://upload.wikimedia.org/wikipedia/commons/1/14/Birth_of_Venus_Botticelli.jpg"
+                    alt="Birth of Venus, Botticelli 1485" onclick="openModal(this.src, this.alt, event)"> <img
+                    id="wheel-id-8" src="ai_botticelli (chatgpt).webp"
+                    alt="&quot;Create an original image in the style of Botticelli&quot;, ChatGPT 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Leonardo da Vinci</div>
+            <div class="images"> <img id="wheel-id-9"
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/81/Leonardo_da_vinci_-_La_scapigliata.jpg"
+                    alt="La Scapigliata, da Vinci 1506-1508" onclick="openModal(this.src, this.alt, event)"> <img
+                    id="wheel-id-10" src="ai_da vinci (copilot).png"
+                    alt="&quot;Create an original image in the style of Leonardo da Vinci&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Salvador Dalí</div>
+            <div class="images"> <img id="wheel-id-11"
+                    src="https://uploads1.wikiart.org/00475/images/salvador-dali/w1siziisijm4njq3mcjdlfsiccisimnvbnzlcnqilcitcxvhbgl0esa5mcatcmvzaxplidiwmdb4mjawmfx1mdazzsjdxq.jpg!Large.jpg"
+                    alt="The Persistance of Memory, Dalí 1931" onclick="openModal(this.src, this.alt, event)"> <img
+                    id="wheel-id-12" src="ai_dali (copilot).png"
+                    alt="&quot;Create an original image in the style of Dali&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Marcel Duchamp</div>
+            <div class="images"> <img id="wheel-id-13"
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Marcel_Duchamp.jpg"
+                    alt="Fountain, Duchamp 1917 (sculpture)" onclick="openModal(this.src, this.alt, event)"> <img
+                    id="wheel-id-14" src="ai_duchamp (copilot).png"
+                    alt="&quot;Create an original image in the style of Marcel Duchamp&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Keith Haring</div>
+            <div class="images"> <img id="wheel-id-15"
+                    src="https://cdn.sanity.io/images/dqllnil6/production/0052868a16885f65b230a60e8c920d1d156f0a1a-750x521.jpg?w=1080&q=60&auto=format"
+                    alt="Dancing People, Haring 1958" onclick="openModal(this.src, this.alt, event)"> <img id="wheel-id-16"
+                    src="ai_haring (copilot).png"
+                    alt="&quot;Create an original image in the style of Keith Haring&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Yayoi Kusama</div>
+            <div class="images"> <img id="wheel-id-17"
+                    src="https://mucciaccia.com/wp-content/uploads/2019/11/ny-yayoi-kusama.jpg" alt="Mushrooms, Kusama 1995"
+                    onclick="openModal(this.src, this.alt, event)"> <img id="wheel-id-18" src="ai_kusama (copilot).png"
+                    alt="&quot;Create an original image in the style of Yayoi Kusama&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Michelangelo</div>
+            <div class="images"> <img id="wheel-id-19"
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg"
+                    alt="The Creation of Adam, Michelangelo 1508-1512" onclick="openModal(this.src, this.alt, event)"> <img
+                    id="wheel-id-20" src="ai_michelangelo (copilot).png"
+                    alt="&quot;Create an original image in the style of Michelangelo&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Claude Monet</div>
+            <div class="images"> <img id="wheel-id-21"
+                    src="https://upload.wikimedia.org/wikipedia/commons/1/1d/The_Water-Lily_Pond_1899_Claude_Monet_Metropolitan.jpg"
+                    alt="Bridge over a Pond of Water Lilies, Monet 1899" onclick="openModal(this.src, this.alt, event)">
+                <img id="wheel-id-22" src="ai_monet (copilot).png"
+                    alt="&quot;Create an original image in the style of Monet&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Jackson Pollock</div>
+            <div class="images"> <img id="wheel-id-23"
+                    src="https://www.guggenheim.org/wp-content/uploads/1946/01/2004.63_ph_webrep-1.jpg"
+                    alt="Untitled (Green Silver), Pollock 1949" onclick="openModal(this.src, this.alt, event)"> <img
+                    id="wheel-id-24" src="ai_pollock (copilot).png"
+                    alt="&quot;Create an original image in the style of Jackson Pollock&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Jan van Eyck</div>
+            <div class="images"> <img id="wheel-id-25"
+                    src="https://upload.wikimedia.org/wikipedia/commons/2/22/Jan_van_Eyck_-_Portrait_of_Jan_de_Leeuw_-_WGA7609.jpg"
+                    alt="Portrait of Jan de Leeuw, van Eyck 1436" onclick="openModal(this.src, this.alt, event)"> <img
+                    id="wheel-id-26" src="ai_van eyck (chatgpt).webp"
+                    alt="&quot;Create an original image in the style of Jan van Eyck&quot;, ChatGPT 2024"
+                    onclick="openModal(this.src, this.alt, event)"> </div>
+    
+        </div>
+        <div class="artist">
+            <div class="artist-name">Vincent van Gogh</div>
+            <div class="images">
+                <img id="wheel-id-27"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/970px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+                    alt="The Starry Night, van Gogh 1889" onclick="openModal(this.src, this.alt, event)">
+                <img id="wheel-id-28" src="ai_van gogh (chatgpt).webp"
+                    alt="&quot;Create an original image in the style of Van Gogh&quot;, ChatGPT 2024"
+                    onclick="openModal(this.src, this.alt, event)">
+            </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Johannes Vermeer</div>
+            <div class="images">
+                <img id="wheel-id-29"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Johannes_Vermeer_-_Het_melkmeisje_-_Google_Art_Project.png/911px-Johannes_Vermeer_-_Het_melkmeisje_-_Google_Art_Project.png"
+                    alt="The Milkmaid, Vermeer 1658" onclick="openModal(this.src, this.alt, event)">
+                <img id="wheel-id-30" src="ai_vermeer (chatgpt).webp"
+                    alt="&quot;Create an original image in the style of Vermeer&quot;, ChatGPT 2024"
+                    onclick="openModal(this.src, this.alt, event)">
+            </div>
+        </div>
+        <div class="artist">
+            <div class="artist-name">Andy Warhol</div>
+            <div class="images">
+                <img id="wheel-id-31"
+                    src="https://ca-times.brightspotcdn.com/dims4/default/dacfa2f/2147483647/strip/true/crop/3600x3575+0+0/resize/1200x1192!/format/webp/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F65%2F03%2Fa8ec652d4d73ac320fe54f337eda%2Fwarhol-marilyn.jpg"
+                    alt="Shot Sage Blue Marilyn, Warhol 1964" onclick="openModal(this.src, this.alt, event)">
+                <img id="wheel-id-32" src="ai_warhol (copilot).png"
+                    alt="&quot;Create an original image in the style of Andy Warhol&quot;, Microsoft Copilot 2024"
+                    onclick="openModal(this.src, this.alt, event)">
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="modalCaption" class="caption"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+<!-- Footer -->
+<footer style="background-color:#222; padding:10px; text-align:center; margin-top:20px; border-top:1px solid #e7e7e7; position:relative; z-index: 3;">
+    <p style="color:#ccc; font-size:14px;">This website is created for educational purposes only, as a final project for TXTDS 221. All content used on this site is intended to be within fair use policy for educational and non-commercial purposes.</p>
+    <p style="color:#ccc; font-size:14px;">Created by Sam Zappa (& Microsoft Copilot)</p>
+</footer>
+
+</html>

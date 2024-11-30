@@ -1,0 +1,179 @@
+body {
+  font-family: 'Lato', serif;
+  background-color: #eceae5;
+  margin: 0;
+  padding: 0;
+}
+
+.title-container { 
+  font-family: 'Roboto Slab', serif; 
+  font-size: 64px; /* Adjust as needed */ 
+  font-weight: bold; 
+  color: #333; 
+  line-height: 1; /* Ensure consistent line height */ 
+  padding: 20px; 
+  padding-bottom: 30px; /* Adjust as needed */ 
+  text-align: left; 
+  position: relative;
+}
+
+.ai { 
+  color: red; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+}
+
+.art-gallery { 
+  color: #222; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  z-index: -1; /* Adjust this value to align "ART GALLERY" properly */ 
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.artist {
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  width: calc(50% - 40px); /* Adjust width */
+}
+
+.artist-name {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #222;
+  color: #fff;
+  font-family: 'Roboto Slab', serif;
+}
+
+.images {
+  display: flex;
+  justify-content: space-between;
+}
+
+.images img {
+  width: calc(50% - 10px); /* Ensure each image takes up half the space with padding */
+  height: auto;
+  aspect-ratio: 1/1; /* Maintain square aspect ratio */
+  object-fit: cover; /* Ensure images do not stretch */
+  padding: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, filter 0.3s;
+  will-change: transform; /* Inform the browser that the transform property will change */
+  
+}
+
+.images img:hover {
+  z-index: 1;
+  transform: scale(1.05); /* Smaller scaling factor */
+  filter: sepia(100%);
+  cursor: zoom-in;
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 4;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+  transition: opacity 0.3s; /* Make the modal opacity transition smoother */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  max-height: 80%; /* Ensure the image doesn't take the full height */
+  object-fit: contain; /* Ensure the image fits within the modal */
+  transform-origin: center; /* Make the image originate from the center */
+  transition: transform 0.3s; /* Ensure the image transition is smooth */
+}
+
+.caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.roulette-wheel {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 50%;
+  z-index: 10;
+  padding: 20px;
+}
+
+#rouletteButton {
+  font-family: 'Roboto Slab', serif;
+  position: fixed;
+  bottom: 45px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.5);
+}
+
+/* Style for Banksy image to move to the right */
+#wheel-id-1 {
+  object-fit: cover; /* Ensures the image covers the container */
+  object-position: 30% center; /* Adjust the horizontal position (right) */
+}
+
+/* Style for Michelangelo image to move to the left */
+#wheel-id-19 {
+  object-fit: cover; /* Ensures the image covers the container */
+  object-position: 60% center; /* Adjust the horizontal position (left) */
+}
+
