@@ -25,22 +25,21 @@
             modal.style.display = "none";
         }
     </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="title-container">
-        <span class="ai">>AI</span>
-        <span class="art-gallery">>ART GALLERY</span> 
-    
-        <!-- Add this button to trigger the roulette -->
-        <!-- <button id="rouletteButton">Spin the Wheel</button> -->
+        <span class="ai">&nbsp;&nbsp;>AI</span>
+        <span class="art-gallery">&nbsp;&nbsp;>ART GALLERY</span>
     </div>
+    <h3 class="sub-title">Dalí or DALL·E? Comparing artists v.s. AI</h3>
+
 
     <div class="slide-out-button">
         <button id="rouletteButton" onclick="toggleButton()">Spin the Wheel</button>
-    </div>
-    
+    </div>    
     
     <!-- Add this div for the roulette wheel -->
     <div id="rouletteWheel" class="roulette-wheel">
@@ -138,7 +137,7 @@
                     src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg"
                     alt="The Creation of Adam, Michelangelo 1508-1512" onclick="openModal(this.src, this.alt, event)"> <img
                     id="wheel-id-20" src="ai_michelangelo (copilot).png"
-                    alt="&quot;Create an original image in the style of Michelangelo&quot;, Microsoft Copilot 2024"
+                    alt="&quot;Create an original painting in the style of Michelangelo&quot;, Microsoft Copilot 2024"
                     onclick="openModal(this.src, this.alt, event)"> </div>
         </div>
         <div class="artist">
@@ -204,7 +203,6 @@
         </div>
     </div>
     
-
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -214,10 +212,16 @@
 
     <script src="scripts.js"></script>
 </body>
+
 <!-- Footer -->
 <footer style="background-color:#222; padding:10px; text-align:center; margin-top:20px; border-top:1px solid #e7e7e7; position:relative; z-index: 3;">
     <p style="color:#ccc; font-size:14px;">This website is created for educational purposes only, as a final project for TXTDS 221. All content used on this site is intended to be within fair use policy for educational and non-commercial purposes.</p>
-    <p style="color:#ccc; font-size:14px;">Created by Sam Zappa (& Microsoft Copilot)</p>
+    <div style="color:#ccc; font-size:14px; display: flex; justify-content: center; align-items: center; padding-bottom: 10px;">
+        <span>Created by Sam Zappa (& Microsoft Copilot, ChatGPT)</span>
+        <span style="margin: 0 10px;">•</span>
+        <a href="https://github.com/zzzappy/txtds221final" style="color:#0084ff;">Source code (GitHub link)</a>
+    </div>
+
 </footer>
 
 </html>

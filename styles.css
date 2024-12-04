@@ -10,11 +10,22 @@ body {
   font-size: 64px; /* Adjust as needed */ 
   font-weight: bold; 
   color: #333; 
-  line-height: 1; /* Ensure consistent line height */ 
-  padding: 20px; 
-  padding-bottom: 30px; /* Adjust as needed */ 
+  line-height: 0.5; /* Ensure consistent line height */ 
   text-align: left; 
   position: relative;
+  white-space: nowrap;
+}
+
+.sub-title {
+  font-family: 'Roboto Slab', serif; 
+  font-size: 24px; /* Adjust as needed */ 
+  color: #333;
+  padding-left: 64px;
+  padding-top: 42px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  text-align: left;
+  white-space: nowrap;
 }
 
 .ai { 
@@ -37,6 +48,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+  padding-top: 0px;
 }
 
 .artist {
